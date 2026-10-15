@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تأكيد الموعد - Centre de Marquain</title>
+    <title>تأكيد الموعد وبيانات السيارة - Centre de Marquain</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,7 +18,7 @@
             background-color: #ffffff;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            max-width: 600px;
+            max-width: 650px;
             width: 100%;
             padding: 25px;
         }
@@ -30,7 +30,7 @@
         }
         .header h1 {
             color: #2c3e50;
-            font-size: 22px;
+            font-size: 20px;
             margin-bottom: 5px;
         }
         .status-badge {
@@ -41,15 +41,35 @@
             font-size: 14px;
             display: inline-block;
         }
+        .section-title {
+            font-size: 16px;
+            color: #2c3e50;
+            border-right: 4px solid #3498db;
+            padding-right: 10px;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
         .info-group {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             line-height: 1.6;
+            font-size: 14px;
         }
         .info-label {
             font-weight: bold;
-            color: #7f8c8d;
+            color: #555;
         }
-        /* تصميم العداد التنازلي */
+        .code-box {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-weight: bold;
+            color: #d63031;
+            display: inline-block;
+            direction: ltr;
+        }
+        /* العداد التنازلي */
         .countdown-container {
             background-color: #eef2f7;
             border-radius: 8px;
@@ -58,7 +78,7 @@
             margin: 20px 0;
         }
         .countdown-title {
-            font-size: 15px;
+            font-size: 14px;
             color: #34495e;
             margin-bottom: 10px;
             font-weight: bold;
@@ -66,49 +86,63 @@
         .timer {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             direction: ltr;
         }
         .timer-segment {
             background: #fff;
-            padding: 10px;
+            padding: 8px;
             border-radius: 6px;
-            min-width: 60px;
+            min-width: 55px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
         .timer-number {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: bold;
             color: #e74c3c;
         }
         .timer-label {
-            font-size: 12px;
+            font-size: 11px;
             color: #7f8c8d;
         }
-        /* أزرار ونمط الخريطة */
-        .btn-location {
+        /* الأزرار والخريطة */
+        .btn {
             display: block;
             width: 100%;
-            background-color: #3498db;
-            color: white;
             text-align: center;
             padding: 12px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 15px;
+            margin-top: 10px;
             box-sizing: border-box;
             transition: background 0.3s;
+        }
+        .btn-booking {
+            background-color: #27ae60;
+            color: white;
+        }
+        .btn-booking:hover {
+            background-color: #219150;
+        }
+        .btn-location {
+            background-color: #3498db;
+            color: white;
         }
         .btn-location:hover {
             background-color: #2980b9;
         }
         .map-frame {
             width: 100%;
-            height: 250px;
+            height: 220px;
             border: 0;
             border-radius: 8px;
             margin-top: 15px;
+        }
+        ol {
+            padding-right: 20px;
+            font-size: 14px;
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -116,25 +150,23 @@
 
 <div class="container">
     <div class="header">
-        <h1>تأكيد الموعد - Centre de Marquain (ST65)</h1>
+        <h1>تفاصيل تفحّص السيارة والموعد - Centre de Marquain (ST65)</h1>
         <span class="status-badge">الموعد مؤكد</span>
     </div>
 
     <!-- تفاصيل الموعد -->
+    <div class="section-title">📅 تفاصيل الموعد الحصري</div>
     <div class="info-group">
-        <span class="info-label">رقم المرجع:</span> 110.019.795
+        <span class="info-label">رقم المرجع (Référence):</span> <span class="code-box">110.019.795</span>
     </div>
     <div class="info-group">
         <span class="info-label">التاريخ والوقت:</span> الخميس، 1 أكتوبر 2026 - الساعة 15:40
     </div>
     <div class="info-group">
-        <span class="info-label">الخدمة:</span> فحص فني بغرض البيع / إعادة التسجيل
+        <span class="info-label">نوع الفحص:</span> Contrôle en vue de la vente / réimmatriculation (فحص للبيع / إعادة التسجيل)
     </div>
     <div class="info-group">
-        <span class="info-label">مسار الاستقبال:</span> خط 3، 4 أو 5
-    </div>
-    <div class="info-group">
-        <span class="info-label">السيارة:</span> RENAULT KANGOO (04/02/2011)
+        <span class="info-label">مسار الاستقبال:</span> خط 3، 4 أو 5 (Ligne 3, 4 ou 5)
     </div>
 
     <!-- العداد التنازلي -->
@@ -160,20 +192,47 @@
         </div>
     </div>
 
-    <!-- عرض اللوكيشن والزر -->
+    <!-- معلومات السيارة من الرمادي (Kentekenbewijs - Deel II) -->
+    <div class="section-title">🚗 بيانات السيارة (شهادة التسجيل - الجزء الثاني)</div>
     <div class="info-group">
-        <span class="info-label">العنوان:</span><br>
-        Rue du Serpolet 21, 7522 Marquain
+        <span class="info-label">نوع ورقم اللوحة (Inschrijvingsnummer):</span> <span class="code-box">2FVK601</span>
+    </div>
+    <div class="info-group">
+        <span class="info-label">رقم الهيكل (VIN):</span> <span class="code-box">VF1FW1AB544609796(01)</span>
+    </div>
+    <div class="info-group">
+        <span class="info-label">رقم المستند (Documentnummer):</span> 666541550
+    </div>
+    <div class="info-group">
+        <span class="info-label">تاريخ أول تسجيل (Datum eerste inschrijving B):</span> 04/02/2011
+    </div>
+    <div class="info-group">
+        <span class="info-label">تاريخ آخر تسجيل (Datum laatste inschrijving):</span> 20/02/2026
     </div>
 
-    <!-- زر فتح الموقع في Google Maps -->
-    <a href="https://www.google.com/maps/search/?api=1&query=Rue+du+Serpolet+21,+7522+Marquain" 
-       target="_blank" 
-       class="btn-location">
-        📍 فتح الموقع في خرائط جوجل
+    <!-- طريقة ورابط حجز الموعد -->
+    <div class="section-title">🌐 طريقة حجز / تعديل الموعد عبر الموقع</div>
+    <ol>
+        <li>الدخول على بوابة المواعيد الخاصة بـ Autosécurité.</li>
+        <li>إدخال رقم لوحة السيارة (<strong>2FVK601</strong>) ورقم الهيكل (<strong>VIN</strong>) أو رقم دعوة الفحص.</li>
+        <li>اختيار نوع الفحص (Contrôle technique / Vente) واختيار المركز (Marquain - ST65).</li>
+        <li>تأكيد الموعد من خلال رمز التفعيل الذي يصل عبر رسالة SMS على الهاتف.</li>
+    </ol>
+
+    <a href="https://rendez-vous.autosecurite.be" target="_blank" class="btn btn-booking">
+        🔗 الانتقال إلى موقع حجز المواعيد (Autosécurité)
     </a>
 
-    <!-- عرض الخريطة مباشرة -->
+    <!-- الموقع والجغرافيا -->
+    <div class="section-title">📍 موقع المركز (Location)</div>
+    <div class="info-group">
+        <span class="info-label">العنوان الكامل:</span> Rue du Serpolet 21, 7522 Marquain, Belgium
+    </div>
+
+    <a href="https://www.google.com/maps/search/?api=1&query=Rue+du+Serpolet+21,+7522+Marquain" target="_blank" class="btn btn-location">
+        📍 فتح الموقع مباشرة في خرائط جوجل (Google Maps)
+    </a>
+
     <iframe 
         class="map-frame" 
         src="https://maps.google.com/maps?q=Rue%20du%20Serpolet%2021,%207522%20Marquain&t=&z=15&ie=UTF8&iwloc=&output=embed" 
@@ -182,9 +241,8 @@
     </iframe>
 </div>
 
-<!-- كود السكربت للعداد التنازلي -->
+<!-- السكربت للعداد التنازلي -->
 <script>
-    // تحديد تاريخ ووقت الموعد (1 أكتوبر 2026 الساعة 15:40)
     const targetDate = new Date("October 1, 2026 15:40:00").getTime();
 
     function updateCountdown() {
@@ -202,11 +260,10 @@
             document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
             document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
         } else {
-            document.getElementById("countdown").innerHTML = "<b style='color:red;'>حين الموعد أو انقضى!</b>";
+            document.getElementById("countdown").innerHTML = "<b style='color:red;'>حان موعد الفحص الفني أو انقضى!</b>";
         }
     }
 
-    // تحديث العداد كل ثانية
     setInterval(updateCountdown, 1000);
     updateCountdown();
 </script>
