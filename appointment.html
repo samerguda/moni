@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تأكيد الموعد - Centre de Ghislenghien</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 650px;
+            width: 100%;
+            padding: 25px;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #eef2f5;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #2c3e50;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        .status-badge {
+            background-color: #27ae60;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: inline-block;
+        }
+        .section-title {
+            font-size: 16px;
+            color: #2c3e50;
+            border-right: 4px solid #3498db;
+            padding-right: 10px;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+        }
+        .info-group {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #555;
+        }
+        .code-box {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-weight: bold;
+            color: #d63031;
+            display: inline-block;
+            direction: ltr;
+        }
+        /* العداد التنازلي */
+        .countdown-container {
+            background-color: #eef2f7;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .countdown-title {
+            font-size: 14px;
+            color: #34495e;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            direction: ltr;
+        }
+        .timer-segment {
+            background: #fff;
+            padding: 8px;
+            border-radius: 6px;
+            min-width: 55px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .timer-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .timer-label {
+            font-size: 11px;
+            color: #7f8c8d;
+        }
+        /* القوائم والتنبيهات */
+        .alert-box {
+            background-color: #fff3cd;
+            border-right: 4px solid #ffc107;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-size: 13px;
+            color: #856404;
+        }
+        ul, ol {
+            padding-right: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .btn-location {
+            display: block;
+            width: 100%;
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            box-sizing: border-box;
+            transition: background 0.3s;
+        }
+        .btn-location:hover {
+            background-color: #2980b9;
+        }
+        .map-frame {
+            width: 100%;
+            height: 220px;
+            border: 0;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>تأكيد موعد الفحص الفني - Ghislenghien (ST66)</h1>
+        <span class="status-badge">الموعد مؤكد</span>
+    </div>
+
+    <!-- تفاصيل الموعد -->
+    <div class="section-title">📅 تفاصيل الموعد</div>
+    <div class="info-group">
+        <span class="info-label">رقم المرجع (Reference):</span> <span class="code-box">311.084.282</span>
+    </div>
+    <div class="info-group">
+        <span class="info-label">التاريخ والوقت:</span> الجمعة، 16 أكتوبر 2026 - الساعة 07:00 صباحاً
+    </div>
+    <div class="info-group">
+        <span class="info-label">نوع الفحص:</span> فحص دوري (Periodic)
+    </div>
+    <div class="info-group">
+        <span class="info-label">السيارة:</span> RENAULT KANGOO (04/02/2011)
+    </div>
+
+    <!-- العداد التنازلي -->
+    <div class="countdown-container">
+        <div class="countdown-title">الوقت المتبقي على الموعد:</div>
+        <div class="timer" id="countdown">
+            <div class="timer-segment">
+                <div class="timer-number" id="days">00</div>
+                <div class="timer-label">أيام</div>
+            </div>
+            <div class="timer-segment">
+                <div class="timer-number" id="hours">00</div>
+                <div class="timer-label">ساعات</div>
+            </div>
+            <div class="timer-segment">
+                <div class="timer-number" id="minutes">00</div>
+                <div class="timer-label">دقائق</div>
+            </div>
+            <div class="timer-segment">
+                <div class="timer-number" id="seconds">00</div>
+                <div class="timer-label">ثواني</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- تنبيه الغرامة -->
+    <div class="alert-box">
+        ⚠️ <strong>تنبيه هام:</strong> أي موعد لا يتم التزامه، أو تفويته، أو إلغاؤه/تعديله قبل أقل من 24 ساعة قد يؤدي إلى غرامة قدرها <strong>37.30 €</strong>.
+    </div>
+
+    <!-- تجهيز السيارة -->
+    <div class="section-title">🛠️ تجهيز السيارة قبل الحضور</div>
+    <ul>
+        <li>ربط جميع أحزمة الأمان.</li>
+        <li>تركيب وفتح جميع مقاعد الصف الثالث (إن وجدت).</li>
+        <li>تجهيز أداة السحب (الهووك) كاملة إذا كانت مثبتة بالسيارة.</li>
+        <li>إحضار السيارة نظيفة وفارغة (من الداخل، الهيكل، الشاسي).</li>
+        <li>الحضور قبل الموعد بـ 10 دقائق.</li>
+    </ul>
+
+    <!-- وثائق السيارة المطلوب إحضارها -->
+    <div class="section-title">📄 الوثائق الأصلية المطلوبة</div>
+    <ul>
+        <li>شهادة التسجيل - الجزء الأول (الورقة الرمادي).</li>
+        <li>شهادة المطابقة (Certificate of conformity).</li>
+        <li>آخر شهادة فحص فني سابقة (إن وجدت).</li>
+        <li>بطاقة التأمين السارية.</li>
+    </ul>
+
+    <!-- عرض اللوكيشن وخريطة المركز -->
+    <div class="section-title">📍 موقع المركز (Location)</div>
+    <div class="info-group">
+        <span class="info-label">العنوان:</span><br>
+        Avenue des Artisans 45, 7822 Ghislenghien, Belgium
+    </div>
+
+    <a href="https://www.google.com/maps/search/?api=1&query=Avenue+des+Artisans+45,+7822+Ghislenghien" 
+       target="_blank" 
+       class="btn-location">
+        📍 فتح الموقع في خرائط جوجل (Google Maps)
+    </a>
+
+    <iframe 
+        class="map-frame" 
+        src="https://maps.google.com/maps?q=Avenue%20des%20Artisans%2045,%207822%20Ghislenghien&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+        allowfullscreen="" 
+        loading="lazy">
+    </iframe>
+</div>
+
+<!-- السكربت البرمجي للعداد التنازلي -->
+<script>
+    // تحديد تاريخ ووقت الموعد: 16 أكتوبر 2026 الساعة 07:00 صباحاً
+    const targetDate = new Date("October 16, 2026 07:00:00").getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        if (difference > 0) {
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+        } else {
+            document.getElementById("countdown").innerHTML = "<b style='color:red;'>حان موعد الفحص الفني الآن!</b>";
+        }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+</script>
+
+</body>
+</html>
